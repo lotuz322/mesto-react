@@ -1,6 +1,6 @@
 import Api from "../../utils/Api";
 import React from "react";
-import Card from '../Card';
+import Card from '../Card/Card';
 import iconEdit from '../../images/icon-edit.svg';
 
 
