@@ -9,6 +9,13 @@ export default function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
     onUpdateAvatar(avatarRef.current.value);
   }
 
+  React.useEffect(() => {
+    if(isOpen) {
+      avatarRef.current.value = '';
+    }
+
+  }, [isOpen]);
+
   return(
     <PopupWithForm isOpen={isOpen} onSubmit={handleSubmit} onClose={onClose} name="update-avatar" title="Обновить аватар" textButton="Сохранить">
       <input ref={avatarRef} className="popup__item" id="avatar" name="avatar" type="url" required

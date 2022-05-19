@@ -9,6 +9,14 @@ export default function AddPlacePopup({onClose, onAddPlace, isOpen}) {
     onAddPlace(name, link);
   }
 
+  React.useEffect(() => {
+    if(!isOpen) {
+      setName('');
+      setLink('');
+    }
+
+  }, [isOpen]);
+
   return(
     <PopupWithForm onSubmit={handleSubmit} isOpen={isOpen} onClose={onClose} name="add-card" title="Новое место" textButton="Сохранить">
       <input value={name} onChange={evt => setName(evt.target.value)} className="popup__item" id="add-card-name" type="text" name="add-card-name" required minLength="2"
